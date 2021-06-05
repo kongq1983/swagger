@@ -1,13 +1,13 @@
 package com.kq.swaagger.controller;
 
+import com.kq.swaagger.dto.DtoResult;
 import com.kq.swaagger.entity.User;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author kq
@@ -21,12 +21,27 @@ public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @ApiOperation(value = "打招呼", notes = "测试方法")
-    @ApiImplicitParam(name = "name", value = "姓名")
-    @RequestMapping(value = "/sayhi", method = RequestMethod.POST)
-    public String add(User user) {
+    private AtomicLong atomicLong = new AtomicLong();
 
-        return "Hello";
+
+    @ApiOperation(value = "用戶添加", notes = "用戶添加")
+    @ApiImplicitParams({
+        @ApiImplicitParam(name = "username", value = "账号"),
+        @ApiImplicitParam(name = "name", value = "姓名")
+    })
+
+//    @ApiResponses({
+//            @ApiResponse()
+//    })
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public DtoResult add(User user) {
+
+        DtoResult result = new DtoResult();
+        result.setCode("1000000");
+        result.setResult(atomicLong.incrementAndGet());
+
+        return result;
 
     }
 
