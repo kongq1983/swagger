@@ -7,3 +7,6 @@ http://localhost:8080/swagger-ui.html
 https://github.com/vipstone/springboot-example/tree/master/springboot-swagger
 
 https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X
+
+
+@ApiIgnore 忽略对象

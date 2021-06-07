@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -32,8 +33,8 @@ public class AccountController {
 
     @ApiOperation(value = "账号添加", notes = "账号添加")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "username", value = "账号"),
-            @ApiImplicitParam(name = "name", value = "姓名")
+            @ApiImplicitParam(name = "username", value = "账号",dataType = "string" , paramType = "query"),
+            @ApiImplicitParam(name = "name", value = "姓名",dataType = "string" , paramType = "query")
     })
 
 //    @ApiResponses({
@@ -41,7 +42,7 @@ public class AccountController {
 //    })
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public DtoGenericResult<User> add(User user) {
+    public DtoGenericResult<User> add(@ApiIgnore User user) {
 
         DtoGenericResult<User> result = new DtoGenericResult();
         result.setCode("1000000");
