@@ -56,4 +56,46 @@ public class AccountController {
 
     }
 
+    @ApiOperation(value = "账号修改 <?> ", notes = "账号修改 <?> ")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "用戶ID",dataType = "long",example = "0"),
+            @ApiImplicitParam(name = "username", value = "账号"),
+            @ApiImplicitParam(name = "name", value = "姓名")
+    })
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public DtoGenericResult<?> update(User user) {
+
+        DtoGenericResult<User> result = new DtoGenericResult();
+        result.setCode("1000000");
+
+        User user1 = new User();
+        user1.setId(atomicLong.incrementAndGet());
+
+        result.setResult(user1);
+
+        return result;
+
+    }
+
+    @ApiOperation(value = "账号编辑<User>", notes = "账号编辑 <User>")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "用戶ID",dataType = "long",example = "0"),
+            @ApiImplicitParam(name = "username", value = "账号"),
+            @ApiImplicitParam(name = "name", value = "姓名")
+    })
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public DtoGenericResult<User> edit(User user) {
+
+        DtoGenericResult<User> result = new DtoGenericResult();
+        result.setCode("1000000");
+
+        User user1 = new User();
+        user1.setId(atomicLong.incrementAndGet());
+
+        result.setResult(user1);
+
+        return result;
+
+    }
+
 }
