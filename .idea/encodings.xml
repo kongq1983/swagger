@@ -3,5 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/customize-javassist/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/original/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/self-customize/src/main/java" charset="UTF-8" />
   </component>
 </project>

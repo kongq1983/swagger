@@ -1,0 +1,5 @@
+erver:
+  port: 8080
+
+swagger:
+  enable: true
