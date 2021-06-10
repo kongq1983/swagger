@@ -1,0 +1,30 @@
+= Shr Swagger接口文档 Demo
+
+
+[[_overview]]
+== Overview
+
+=== Version information
+[%hardbreaks]
+__Version__ : 1.0
+
+
+=== License information
+[%hardbreaks]
+__Terms of service__ : http://localhost:8080/swagger-ui.html
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : localhost:8080
+__BasePath__ : /
+
+
+=== Tags
+
+* Teacher控制器 : Teacher Controller
+* 注意: 忽略本控制器,防止Bug : ZZZZZ Test Controller
+* 账号控制器 : Account Controller
+
+
+

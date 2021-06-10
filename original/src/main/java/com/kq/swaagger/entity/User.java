@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel
 public class User {
 
-    @ApiModelProperty(value="ID")
+    @ApiModelProperty(value="ID",example = "0")
     private Long id;
     @ApiModelProperty(value="帐号")
     private String username;

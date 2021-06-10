@@ -3,13 +3,16 @@ package com.kq.swagger.customize.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.List;
+
 /**
  * @author kq
- * @date 2021-06-03 17:35
+ * @date 2021-06-10 15:05
  * @since 2020-0630
  */
 @ApiModel
-public class User {
+public class Teacher {
+
     @ApiModelProperty(value="ID",example = "0")
     private Long id;
     @ApiModelProperty(value="帐号")
@@ -20,6 +23,8 @@ public class User {
     private int age;
     @ApiModelProperty(value="地址")
     private String address;
+
+    private List<User> userList;
 
     public Long getId() {
         return id;
@@ -61,15 +66,23 @@ public class User {
         this.address = address;
     }
 
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Teacher{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", address='" + address + '\'' +
+                ", userList=" + userList +
                 '}';
     }
 }

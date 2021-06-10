@@ -111,28 +111,28 @@ public class MyResponsePlugin extends MyBaseBuildPlugin implements OperationBuil
         try{
             //添加resultCode字段
             Map<String,Object> resultCodeMap = new HashMap<String,Object>(6);
-            resultCodeMap.put("name","resultCode");
-            resultCodeMap.put("description","结果编码");
+            resultCodeMap.put("name","code");
+            resultCodeMap.put("description","结果说明");
             resultCodeMap.put("example","200");
             resultCodeMap.put("value","结果编码");
             CtField resultCodeField = super.createField(resultCodeMap,ctClass);
             ctClass.addField(resultCodeField);
 
             //添加resultMsg字段
-            Map<String,Object> resultMsgMap = new HashMap<String,Object>(6);
-            resultMsgMap.put("name","resultMsg");
-            resultMsgMap.put("description","结果说明");
-            resultMsgMap.put("example","操作成功");
-            resultMsgMap.put("value","结果说明");
-            CtField resultMsgField = super.createField(resultMsgMap,ctClass);
-            ctClass.addField(resultMsgField);
+//            Map<String,Object> resultMsgMap = new HashMap<String,Object>(6);
+//            resultMsgMap.put("name","msg");
+//            resultMsgMap.put("description","结果说明");
+//            resultMsgMap.put("example","操作成功");
+//            resultMsgMap.put("value","结果说明");
+//            CtField resultMsgField = super.createField(resultMsgMap,ctClass);
+//            ctClass.addField(resultMsgField);
 
             //添加resultData字段
             //isSet == true,表示全部必选
             super.setRequiredAsDefaultValue(true);
             Class innerClass = createRefModel(operationContext.getDocumentationContext(),properties,classname);
             Map<String,Object> resultDataMap = new HashMap<String,Object>(6);
-            resultDataMap.put("name","resultData");
+            resultDataMap.put("name","result");
             resultDataMap.put("description","返回结果");
             resultDataMap.put("value","数据对象");
             String dataType = innerClass.getName();

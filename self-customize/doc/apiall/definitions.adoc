@@ -1,0 +1,146 @@
+
+[[_definitions]]
+== Definitions
+
+[[_dtogenericresult]]
+=== DtoGenericResult
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**code** +
+__optional__|string
+|**result** +
+__optional__|object
+|===
+
+
+[[_cc94e26c6f5887071f4d98850a51baa5]]
+=== DtoGenericResult«Teacher»
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**code** +
+__optional__|string
+|**result** +
+__optional__|<<_teacher,Teacher>>
+|===
+
+
+[[_d6bfef52f7146b5bcdbd0e6a3158c0c3]]
+=== DtoGenericResult«User»
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**code** +
+__optional__|string
+|**result** +
+__optional__|<<_user,User>>
+|===
+
+
+[[_responseobject0]]
+=== ResponseObject0
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**id** +
+__required__|用户ID +
+**Example** : `1`|integer (int64)
+|===
+
+
+[[_responseobject1]]
+=== ResponseObject1
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**id** +
+__required__|用户ID +
+**Example** : `1`|integer (int64)
+|**teacher** +
+__required__|老师 +
+**Example** : `"teacher"`|string
+|**username** +
+__required__|账号 +
+**Example** : `"admin"`|string
+|===
+
+
+[[_result0]]
+=== Result0
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__required__|结果编码 +
+**Example** : `"200"`|string
+|**result** +
+__required__|数据对象|<<_responseobject0,ResponseObject0>>
+|===
+
+
+[[_result1]]
+=== Result1
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__required__|结果编码 +
+**Example** : `"200"`|string
+|**result** +
+__required__|数据对象|<<_responseobject1,ResponseObject1>>
+|===
+
+
+[[_teacher]]
+=== Teacher
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**address** +
+__optional__|地址|string
+|**age** +
+__optional__|年龄 +
+**Example** : `18`|integer (int32)
+|**id** +
+__optional__|ID +
+**Example** : `0`|integer (int64)
+|**name** +
+__optional__|姓名|string
+|**userList** +
+__optional__||< <<_user,User>> > array
+|**username** +
+__optional__|帐号|string
+|===
+
+
+[[_user]]
+=== User
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**address** +
+__optional__|地址|string
+|**age** +
+__optional__|年龄 +
+**Example** : `18`|integer (int32)
+|**id** +
+__optional__|ID +
+**Example** : `0`|integer (int64)
+|**name** +
+__optional__|姓名|string
+|**username** +
+__optional__|帐号|string
+|===
+
+
+

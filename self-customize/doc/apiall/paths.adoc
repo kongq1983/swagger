@@ -1,0 +1,222 @@
+
+[[_paths]]
+== Resources
+
+[[_163078463787b0f9005eac37a4cd5208]]
+=== Teacher控制器
+Teacher Controller
+
+
+[[_listusingget]]
+==== 账号列表
+....
+GET /api/teacher/list
+....
+
+
+===== Description
+账号列表
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**content-type** +
+__optional__|contentType 请求类型|string
+|**Query**|**address** +
+__optional__|地址|string
+|**Query**|**age** +
+__optional__|年龄|integer (int32)
+|**Query**|**id** +
+__optional__|ID|integer (int64)
+|**Query**|**name** +
+__optional__|姓名|string
+|**Query**|**username** +
+__optional__|账号|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_cc94e26c6f5887071f4d98850a51baa5,DtoGenericResult«Teacher»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_1d886ce220ddb1cc2a330d0c0e94b161]]
+=== 注意: 忽略本控制器,防止Bug
+ZZZZZ Test Controller
+
+
+[[_zzztestusingpost]]
+==== 测试的控制器方法-没有实际意义
+....
+POST /zzzzzz/test
+....
+
+
+===== Description
+测试的控制器方法-没有实际意义
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**content-type** +
+__optional__|contentType 请求类型|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_dtogenericresult,DtoGenericResult>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_546bbb7b907951ada21509dba4a4795a]]
+=== 账号控制器
+Account Controller
+
+
+[[_addusingpost]]
+==== 账号添加 
+....
+POST /api/account/add
+....
+
+
+===== Description
+账号添加
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__required__|token标记|string
+|**Header**|**content-type** +
+__optional__|contentType 请求类型|string
+|**Query**|**address** +
+__optional__|地址|string
+|**Query**|**age** +
+__optional__|年龄|integer (int32)
+|**Query**|**id** +
+__optional__|用戶ID|integer (int64)
+|**Query**|**name** +
+__optional__|姓名|string
+|**Query**|**username** +
+__optional__|账号|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|返回json用例说明|<<_result0,Result0>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_editusingpost]]
+==== 账号修改
+....
+POST /api/account/edit
+....
+
+
+===== Description
+账号修改
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**content-type** +
+__optional__|contentType 请求类型|string
+|**Query**|**address** +
+__optional__|地址|string
+|**Query**|**age** +
+__optional__|年龄|integer (int32)
+|**Query**|**id** +
+__optional__|用戶ID|integer (int64)
+|**Query**|**name** +
+__optional__|姓名|string
+|**Query**|**username** +
+__optional__|账号|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|返回json用例说明|<<_result1,Result1>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `*/*`
+
+
+
