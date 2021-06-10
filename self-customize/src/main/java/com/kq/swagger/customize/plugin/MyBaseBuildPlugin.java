@@ -44,6 +44,7 @@ public class MyBaseBuildPlugin {
      * 参数的全局索引,用于动态生成类,确保类名不会重复
      * */
     public AtomicInteger atomicInt = new AtomicInteger();
+    public AtomicInteger childAtomicInt = new AtomicInteger();
 
     private ClassPool pool = ClassPool.getDefault();
 
@@ -100,9 +101,9 @@ public class MyBaseBuildPlugin {
         List<SwaggerResponseField> propertyList = new ArrayList<>();
         JSONObject propertyMap = new JSONObject();
         for(SwaggerResponseField property : propertys){
-            if(property.name().contains(".")){
+            if(property.name().contains(".")){ // school.id
                 propertyList.add(property);
-            }else{
+            }else{ // 只有当前层
                 JSONObject propertyObj = this.transferAnnationToJSONObject(property);
                 propertyMap.put(property.name(),propertyObj);
             }
@@ -153,7 +154,8 @@ public class MyBaseBuildPlugin {
                 CtField ctField = this.createField(params,ctClass);
                 ctClass.addField(ctField);
             }else if(child instanceof JSONObject || child instanceof JSONArray) {
-                String propertyClassName = ctClass.getName() + "." + key;
+                // 这里加了  atomicInt.incrementAndGet() 每个类都独立 比如有多个student
+                String propertyClassName = ctClass.getName() + "." + key + childAtomicInt.incrementAndGet();
                 CtClass propertyClass = pool.makeClass(propertyClassName);
                 if(child instanceof JSONArray){
                     String datatype = "[L" + propertyClass.getName() + ";";
@@ -312,7 +314,7 @@ public class MyBaseBuildPlugin {
     }
 
     /***
-     * 把ApiJsonProperty注解转换成JSONObject
+     * 把SwaggerResponseField注解转换成JSONObject
      * @param property
      * */
     protected JSONObject transferAnnationToJSONObject(SwaggerResponseField property){
