@@ -85,31 +85,40 @@ public class AccountController1 {
 
     }
 
-
-//    @ApiOperation(value = "账号编辑-自定义和泛型2<User>", notes = "账号编辑-自定义和泛型2 <User>")
-//    @ApiImplicitParams({
-//            @ApiImplicitParam(name = "id", value = "用戶ID",dataType = "long",example = "0"),
-//            @ApiImplicitParam(name = "username", value = "账号"),
-//            @ApiImplicitParam(name = "name", value = "姓名")
-//    })
-//    @SwaggerResponseObject(value = {
-//            @SwaggerResponseField(name = "id", description = "用户ID", dataType = "long", example = "1"),
-//            @SwaggerResponseField(name = "username", description = "账号", example = "admin")
-//    })
-//    @RequestMapping(value = "/edit2", method = RequestMethod.POST)
-//    public DtoGenericResult<User> edit2(User user) {
-//
+    /**
+     * 空方法
+     * @param user
+     * @return
+     */
+//    @ApiOperation(value = "账号编辑-自定义和泛型<User>-test", notes = "账号编辑-自定义和泛型 <User> - test")
+//    @RequestMapping(value = "/edit0", method = RequestMethod.POST)
+//    public DtoGenericResult<User> edit0(User user) {
 //        DtoGenericResult<User> result = new DtoGenericResult();
-//        result.setCode("1000000");
-//
-//        User user1 = new User();
-//        user1.setId(atomicLong.incrementAndGet());
-//
-//        result.setResult(user1);
-//
 //        return result;
-//
 //    }
+
+
+    @ApiOperation(value = "账号编辑-自定义和泛型2<User>", notes = "账号编辑-自定义和泛型2 <User>")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "用戶ID",dataType = "long",example = "0"),
+            @ApiImplicitParam(name = "username", value = "账号"),
+            @ApiImplicitParam(name = "name", value = "姓名")
+    })
+
+    @RequestMapping(value = "/edit2", method = RequestMethod.POST)
+    public DtoGenericResult<User> edit2(User user) {
+
+        DtoGenericResult<User> result = new DtoGenericResult();
+        result.setCode("1000000");
+
+        User user1 = new User();
+        user1.setId(atomicLong.incrementAndGet());
+
+        result.setResult(user1);
+
+        return result;
+
+    }
 
 
 }

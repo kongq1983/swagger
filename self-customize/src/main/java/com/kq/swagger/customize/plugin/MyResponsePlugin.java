@@ -30,7 +30,7 @@ import java.util.*;
  */
 @Component
 @Order
-public class ResponsePlugin extends MyBaseBuildPlugin implements OperationBuilderPlugin {
+public class MyResponsePlugin extends MyBaseBuildPlugin implements OperationBuilderPlugin {
 
     @Override
     public void apply(OperationContext operationContext) {
