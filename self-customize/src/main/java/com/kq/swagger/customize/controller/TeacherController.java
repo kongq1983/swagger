@@ -1,5 +1,7 @@
 package com.kq.swagger.customize.controller;
 
+import com.kq.swagger.customize.config.annotation.SwaggerResponseField;
+import com.kq.swagger.customize.config.annotation.SwaggerResponseObject;
 import com.kq.swagger.customize.config.dto.DtoGenericResult;
 import com.kq.swagger.customize.entity.Teacher;
 import com.kq.swagger.customize.entity.User;
@@ -37,6 +39,67 @@ public class TeacherController {
 //        User user1 = new User();
 //        user1.setId(atomicLong.incrementAndGet());
 //        result.setResult(user1);
+
+        return result;
+
+    }
+
+
+    @ApiOperation(value = "老师修改", notes = "老师修改")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "用戶ID",dataType = "long",example = "0"),
+            @ApiImplicitParam(name = "username", value = "账号"),
+            @ApiImplicitParam(name = "name", value = "姓名")
+    })
+    @SwaggerResponseObject(value = {
+            @SwaggerResponseField(name = "id", description = "用户ID", dataType = "long", example = "1"),
+            @SwaggerResponseField(name = "username", description = "账号", example = "admin"),
+            @SwaggerResponseField(name = "teacher", description = "老师", example = "teacher"),
+            @SwaggerResponseField(name = "school", description = "学校", example = "obj", dataType="school"),
+            @SwaggerResponseField(name = "school.id", description = "学校ID", example = "0",dataType="int"),
+            @SwaggerResponseField(name = "school.code", description = "学校编号", example = "0001")
+    })
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public DtoGenericResult<User> add(User user) {
+
+        DtoGenericResult<User> result = new DtoGenericResult();
+        result.setCode("1000000");
+
+        User user1 = new User();
+
+        result.setResult(user1);
+
+        return result;
+
+    }
+
+
+    @ApiOperation(value = "老师修改", notes = "老师修改")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "用戶ID",dataType = "long",example = "0"),
+            @ApiImplicitParam(name = "username", value = "账号"),
+            @ApiImplicitParam(name = "name", value = "姓名")
+    })
+    @SwaggerResponseObject(value = {
+            @SwaggerResponseField(name = "id", description = "用户ID", dataType = "long", example = "1"),
+            @SwaggerResponseField(name = "username", description = "账号", example = "admin"),
+            @SwaggerResponseField(name = "teacher", description = "老师", example = "teacher"),
+            @SwaggerResponseField(name = "school", description = "学校", example = "obj", dataType="school"),
+            @SwaggerResponseField(name = "school.id", description = "学校ID", example = "0",dataType="int"),
+            @SwaggerResponseField(name = "school.code", description = "学校编号", example = "0001"),
+            @SwaggerResponseField(name = "school.name", description = "学校名称", example = "high school"),
+            @SwaggerResponseField(name = "school.address", description = "学校地址", example = "hz.zj"
+            )
+    })
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public DtoGenericResult<User> edit(User user) {
+
+        DtoGenericResult<User> result = new DtoGenericResult();
+        result.setCode("1000000");
+
+        User user1 = new User();
+
+        result.setResult(user1);
 
         return result;
 
