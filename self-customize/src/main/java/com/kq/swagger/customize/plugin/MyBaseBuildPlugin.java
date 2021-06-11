@@ -80,7 +80,7 @@ public class MyBaseBuildPlugin {
 
             Class clazz = ctClass.toClass();
             ResolvedType resolvedType = typeResolver.resolve(clazz);
-            context.getAdditionalModels().add(resolvedType);
+            context.getAdditionalModels().add(resolvedType); // 这里会添加ResponseObject0、1、2......
             return clazz;
         } catch (Exception e) {
             e.printStackTrace();

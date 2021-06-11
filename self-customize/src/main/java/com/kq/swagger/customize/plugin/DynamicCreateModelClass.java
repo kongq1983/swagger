@@ -19,8 +19,9 @@ import java.util.*;
  * @since 2020-0630
  */
 
-@Component
-@Order
+@Deprecated
+//@Component
+//@Order
 public class DynamicCreateModelClass extends MyBaseBuildPlugin{
 
     public Class getModelClass(RequestMappingContext requestMappingContext) {

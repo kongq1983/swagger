@@ -7,6 +7,7 @@ import com.kq.swagger.customize.config.annotation.SwaggerResponseObject;
 import javassist.ClassPool;
 import javassist.CtClass;
 import javassist.CtField;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import springfox.documentation.schema.ModelRef;
@@ -16,6 +17,8 @@ import springfox.documentation.service.VendorExtension;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.OperationBuilderPlugin;
 import springfox.documentation.spi.service.contexts.OperationContext;
+import springfox.documentation.spi.service.contexts.RequestMappingContext;
+import springfox.documentation.spring.web.readers.operation.OperationModelsProvider;
 
 import java.util.*;
 
@@ -31,6 +34,10 @@ import java.util.*;
 @Component
 @Order
 public class MyResponsePlugin extends MyBaseBuildPlugin implements OperationBuilderPlugin {
+
+    @Autowired
+    private OperationModelsProvider operationModelsProvider;
+
 
     @Override
     public void apply(OperationContext operationContext) {
@@ -130,7 +137,7 @@ public class MyResponsePlugin extends MyBaseBuildPlugin implements OperationBuil
             //添加resultData字段
             //isSet == true,表示全部必选
             super.setRequiredAsDefaultValue(true);
-            Class innerClass = createRefModel(operationContext.getDocumentationContext(),properties,classname);
+            Class innerClass = createRefModel(operationContext.getDocumentationContext(),properties,classname); // 这里会创建并添加到addional 比如ResponseObject0、1等 这个是ressult变量的对象
             Map<String,Object> resultDataMap = new HashMap<String,Object>(6);
             resultDataMap.put("name","result");
             resultDataMap.put("description","返回结果");
@@ -147,6 +154,12 @@ public class MyResponsePlugin extends MyBaseBuildPlugin implements OperationBuil
             Class outerClass = ctClass.toClass();
             ResolvedType outerResolvedType = typeResolver.resolve(outerClass);
             operationContext.getDocumentationContext().getAdditionalModels().add(outerResolvedType);
+
+            // 触发一下，不触发 最后1个自定义的返回值有问题  (如果最后1个不是自定义返回值 没问题)
+            RequestMappingContext requestMappingContext = RequestMappingContextUtil.getRequestMappingContext(operationContext);
+            operationModelsProvider.apply(requestMappingContext);
+
+
             ModelRef outerModelRef = new ModelRef(outerClass.getSimpleName());
             Set<ResponseMessage> set = new LinkedHashSet<ResponseMessage>();
             Map<String, Header> headers = new HashMap<String, Header>();

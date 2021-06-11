@@ -13,22 +13,22 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-0630
  */
 
-@RestController
-@RequestMapping("/zzzzzz")
-@Api(tags = "注意: 忽略本控制器,防止Bug")
+//@RestController
+//@RequestMapping("/zzzzzz")
+//@Api(tags = "注意: 忽略本控制器,防止Bug")
 public class ZZZZZTestController {
 
 
-    @ApiOperation(value = "测试的控制器方法-没有实际意义", notes = "测试的控制器方法-没有实际意义")
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public DtoGenericResult zzzTest() {
-
-        DtoGenericResult result = new DtoGenericResult();
-        result.setCode("1000000");
-
-        return result;
-
-    }
+//    @ApiOperation(value = "测试的控制器方法-没有实际意义", notes = "测试的控制器方法-没有实际意义")
+//    @RequestMapping(value = "/test", method = RequestMethod.POST)
+//    public DtoGenericResult zzzTest() {
+//
+//        DtoGenericResult result = new DtoGenericResult();
+//        result.setCode("1000000");
+//
+//        return result;
+//
+//    }
 
 
 }
