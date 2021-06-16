@@ -12,6 +12,7 @@
         <module>original</module>
         <module>customize-javassist</module>
         <module>self-customize</module>
+        <module>more-module-original</module>
     </modules>
 
     <parent>

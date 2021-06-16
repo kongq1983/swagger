@@ -17,6 +17,9 @@ https://blog.csdn.net/Hpluvalbe/article/details/107102063
 
 https://blog.csdn.net/qq_31601531/article/details/102707168
 
+导出参考-swagger:
+http://localhost:8080/v2/api-docs
+
 导出参考:
 https://blog.csdn.net/ii19910410/article/details/90031310
 
@@ -25,3 +28,10 @@ OperationModelsProviderPlugin
 DocumentationPluginsManager.modelContexts
 
 DocumentationPluginsManager.operation
+
+OperationBuilder.mergeResponseMessages
+
+
+#  多模块
+https://www.cnblogs.com/cao-lei/p/14000240.html
+

@@ -57,7 +57,13 @@ public class TeacherController {
             @SwaggerResponseField(name = "teacher", description = "老师", example = "teacher"),
             @SwaggerResponseField(name = "school", description = "学校", example = "obj", dataType="school"),
             @SwaggerResponseField(name = "school.id", description = "学校ID", example = "0",dataType="int"),
-            @SwaggerResponseField(name = "school.code", description = "学校编号", example = "0001")
+            @SwaggerResponseField(name = "school.code", description = "学校编号", example = "0001"),
+            @SwaggerResponseField(name = "school.master", description = "校长", example = "obj", dataType="child"),
+            @SwaggerResponseField(name = "school.master.id", description = "校长ID", example = "obj", dataType="int"),
+            @SwaggerResponseField(name = "school.master.name", description = "校长姓名", example = "obj"),
+            @SwaggerResponseField(name = "address", description = "地址", example = "obj", dataType="home"),
+            @SwaggerResponseField(name = "address.id", description = "地址ID", example = "0",dataType="int"),
+            @SwaggerResponseField(name = "address.code", description = "地址邮编", example = "0002"),
     })
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public DtoGenericResult<User> add(User user) {
